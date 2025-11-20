@@ -69,6 +69,9 @@ class hpsba:
                              self.c1 * r1 * (self.p_best_x[i] - self.x[i]) +
                              self.c2 * r2 * (self.g_best_x - self.x[i]))
 
+                v_max = 1.0
+                self.v[i] = np.clip(self.v[i], -v_max, v_max)
+
                 # eq 14
                 x_temp = self.x[i] + self.v[i]
 
@@ -80,12 +83,14 @@ class hpsba:
                     # global search
                     step = (r**2) * (self.g_best_x - x_temp) * f_i
                     x_new[i] = (w * x_temp) + step
+                    # x_new[i] = x_temp + step
                 else:
                     # local search
                     j = np.random.randint(0, self.pop_size)
                     k = np.random.randint(0, self.pop_size)
                     step = (r**2) * (self.x[k] - self.x[j]) * f_i
                     x_new[i] = (w * x_temp) + step
+                    # x_new[i] = x_temp + step
 
                 x_new[i] = np.clip(x_new[i], self.bounds[0], self.bounds[1])
 

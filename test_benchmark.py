@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from hpsba import hpsba
 import benchmark
 
-# funcs_to_test = ['F1', 'F8', 'F10', 'F16', 'F21']
+# funcs_to_test = ['F5', 'F6', 'F7', 'F8', 'F9']
 funcs_to_test = ['F1']
 
 population_size = 30
