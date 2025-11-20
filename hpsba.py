@@ -105,7 +105,7 @@ class hpsba:
 
             convergence_curve.append(self.g_best_f)
 
-        return convergence_curve, self.g_best_x, self.g_best_f
+        return self.g_best_x, self.g_best_f, convergence_curve
 
 
 

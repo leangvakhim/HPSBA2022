@@ -40,7 +40,7 @@ class wsn:
         fig, ax = plt.subplots(figsize=(8, 8))
 
         for sensor in sensors:
-            circle = patches.Circle((sensor[0], sensor[1]), self.rs,
+            circle = patches.Circle((sensor[0], sensor[1]), self.r_sensing,
                                      alpha=0.3, fc='purple', ec='black')
             ax.add_patch(circle)
             ax.plot(sensor[0], sensor[1], 'k.', markersize=5)
