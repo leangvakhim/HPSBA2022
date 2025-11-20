@@ -97,6 +97,10 @@ class hpsba:
                     self.x[i] = x_new[i]
                     self.fitness[i] = new_fitness
 
+                    if new_fitness < self.p_best_f[i]:
+                        self.p_best_f[i] = new_fitness
+                        self.p_best_x[i] = x_new[i].copy()
+
                     if new_fitness < self.g_best_f:
                         self.g_best_f = new_fitness
                         self.g_best_x = x_new[i].copy()
