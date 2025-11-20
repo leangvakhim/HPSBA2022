@@ -11,7 +11,9 @@ resolution=1.0
 
 wsn_env = wsn(area_width, area_height, num_nodes, r_sensing, resolution)
 dim = num_nodes * 2
-bounds = (0, area_width)
+# bounds = (0, area_width)
+boundary_threshold = r_sensing / 3.0
+bounds = (boundary_threshold, area_width - boundary_threshold)
 
 optimizer = hpsba(wsn_env.evaluate, bounds, dim, population, max_iter)
 

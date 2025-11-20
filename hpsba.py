@@ -82,15 +82,15 @@ class hpsba:
                 if self.sp > r:
                     # global search
                     step = (r**2) * (self.g_best_x - x_temp) * f_i
-                    x_new[i] = (w * x_temp) + step
-                    # x_new[i] = x_temp + step
+                    # x_new[i] = (w * x_temp) + step
+                    x_new[i] = x_temp + step
                 else:
                     # local search
                     j = np.random.randint(0, self.pop_size)
                     k = np.random.randint(0, self.pop_size)
                     step = (r**2) * (self.x[k] - self.x[j]) * f_i
-                    x_new[i] = (w * x_temp) + step
-                    # x_new[i] = x_temp + step
+                    # x_new[i] = (w * x_temp) + step
+                    x_new[i] = x_temp + step
 
                 x_new[i] = np.clip(x_new[i], self.bounds[0], self.bounds[1])
 
